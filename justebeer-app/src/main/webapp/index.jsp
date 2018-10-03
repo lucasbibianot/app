@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Iniciando com o OpenShift para o JusteBeer</h2>
 </body>
 </html>
