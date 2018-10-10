@@ -15,6 +15,7 @@ import br.com.lucasbibianot.entidades.Exemplo;
 @Path("exemplo-api")
 @RequestScoped
 public class ExemploAPI {
+	
 	@Inject
 	private ExemploDAO dao;
 
