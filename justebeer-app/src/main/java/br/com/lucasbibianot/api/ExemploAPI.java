@@ -20,7 +20,7 @@ public class ExemploAPI {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/fotografo/{codigo}")
+	@Path("/exemplo/{codigo}")
 	public ExemploDTO GetPessoa(@PathParam("codigo") Long codigo) {
 
 		Exemplo entity = dao.getExemplo(codigo);
