@@ -2,7 +2,8 @@
     <wb-module deploy-name="justebeer-app">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/" source-path="/src/main/resources"/>
         <property name="context-root" value="justebeer-app"/>
         <property name="java-output-path" value="/justebeer-app/target/classes"/>
     </wb-module>
