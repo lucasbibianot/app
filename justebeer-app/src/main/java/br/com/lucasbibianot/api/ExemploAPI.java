@@ -43,7 +43,7 @@ public class ExemploAPI {
 	@Path("/exemplo")
 	@JWTTokenNeeded
 	public ExemploEnvelopeDTO getTodos() {
-		List<ExemploDTO> listaDtos = new ArrayList<>();
+		List<ExemploDTO> listaDtos = new ArrayList<ExemploDTO>();
 		List<Exemplo> lista = dao.getTodos();
 
 		if (lista != null) {
