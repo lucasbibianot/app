@@ -10,6 +10,10 @@ public class ExemploDTO {
 	private Long id;
 	private String nome;
 
+	public ExemploDTO() {
+		super();
+	}
+	
 	public ExemploDTO(Long id, String nome) {
 		super();
 		this.id = id;
