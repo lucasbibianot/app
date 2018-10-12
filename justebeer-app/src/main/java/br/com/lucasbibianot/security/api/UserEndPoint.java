@@ -37,7 +37,7 @@ public class UserEndPoint {
         	userService.autenticar(login, password);
  
             // Issue a token for the user
-            String token = this.securityJWT.createJWT(login, 600000);
+            String token = this.securityJWT.createJWT(login, 600000000);
  
             // Return the token on the response
             return Response.ok().header(HttpHeaders.AUTHORIZATION, "Bearer " + token).build();
