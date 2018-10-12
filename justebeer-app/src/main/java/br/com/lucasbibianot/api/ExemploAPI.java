@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import br.com.lucasbibianot.dao.ExemploDAO;
 import br.com.lucasbibianot.dto.ExemploDTO;
 import br.com.lucasbibianot.entidades.Exemplo;
+import br.com.lucasbibianot.security.annotations.JWTTokenNeeded;
 
 @Path("exemplo-api")
 @RequestScoped
@@ -22,6 +23,7 @@ public class ExemploAPI {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/exemplo/{codigo}")
+	@JWTTokenNeeded
 	public ExemploDTO GetPessoa(@PathParam("codigo") Long codigo) {
 
 		Exemplo entity = dao.getExemplo(codigo);

@@ -14,22 +14,19 @@ import org.apache.deltaspike.jpa.api.entitymanager.PersistenceUnitName;
 @ApplicationScoped
 public class EntityManagerProducer {
 	@Inject
-    @PersistenceUnitName("justebeer-backend-pu")
-    private EntityManagerFactory entityManagerFactory;
+	@PersistenceUnitName("justebeer-backend-pu")
+	private EntityManagerFactory entityManagerFactory;
 
-    @Produces
-    @Default
-    @RequestScoped
-    public EntityManager create()
-    {
-        return this.entityManagerFactory.createEntityManager();
-    }
+	@Produces
+	@Default
+	@RequestScoped
+	public EntityManager create() {
+		return this.entityManagerFactory.createEntityManager();
+	}
 
-    public void dispose(@Disposes @Default EntityManager entityManager)
-    {
-        if (entityManager.isOpen())
-        {
-            entityManager.close();
-        }
-    }
+	public void dispose(@Disposes @Default EntityManager entityManager) {
+		if (entityManager.isOpen()) {
+			entityManager.close();
+		}
+	}
 }
