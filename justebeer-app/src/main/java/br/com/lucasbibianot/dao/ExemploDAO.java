@@ -9,20 +9,17 @@ import br.com.lucasbibianot.entidades.Exemplo;
 import br.com.lucasbibianot.jpa.annotations.Repository;
 
 @Repository
-public class ExemploDAO {
-
-	@Inject
-	private EntityManager entityManager;
+public class ExemploDAO extends DAOBase {
 
 	public Exemplo getExemplo(Long codigo) {
 
-		return this.entityManager.find(Exemplo.class, codigo);
+		return this.recuperarPorId(Exemplo.class, codigo);
 	}
 
 	public List<Exemplo> getTodos() {
 		StringBuilder sql = new StringBuilder();
 		sql.append("select o From Exemplo o");
 
-		return this.entityManager.createQuery(sql.toString()).getResultList();
+		return this.executarQuery(Exemplo.class, sql.toString(), null);
 	}
 }
