@@ -38,12 +38,12 @@
 	left: 5%;
 }
 
-.login-sec {
+.titulo {
 	padding: 50px 30px;
 	position: relative;
 }
 
-.login-sec .copy-text {
+.titulo .copy-text {
 	position: absolute;
 	width: 80%;
 	bottom: 20px;
@@ -51,22 +51,22 @@
 	text-align: center;
 }
 
-.login-sec .copy-text i {
+.titulo .copy-text i {
 	color: #586d20;
 }
 
-.login-sec .copy-text a {
+.titulo .copy-text a {
 	color: #586d20;
 }
 
-.login-sec h2 {
+.titulo h2 {
 	margin-bottom: 30px;
 	font-weight: 800;
 	font-size: 30px;
 	color: #a9cf46;
 }
 
-.login-sec h2:after {
+.titulo h2:after {
 	content: " ";
 	width: 100px;
 	height: 5px;
