@@ -3,6 +3,7 @@ package br.com.lucasbibianot.dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -10,7 +11,9 @@ import javax.persistence.Query;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-public class DAOBase {
+import br.com.lucasbibianot.entidades.EntidadeBase;
+
+public class DAOBase<T extends EntidadeBase> {
 
 	@Inject
 	private EntityManager entityManager;
@@ -23,7 +26,7 @@ public class DAOBase {
 		return this.entityManager;
 	}
 
-	public <T> T salvar(T entidade) {
+	public T salvar(T entidade) {
 		return (T) getSession().save(entidade);
 	}
 
@@ -32,26 +35,26 @@ public class DAOBase {
 	}
 
 	/***/
-	public <T> T recuperarPorId(final Class<T> type, final Long id) {
+	public T recuperarPorId(final Class<T> type, final Long id) {
 		return (T) getSession().get(type, id);
 	}
 
 	/***/
-	public <T> T merge(final T o) {
+	public T merge(final T o) {
 		return (T) getSession().merge(o);
 	}
 
 	/***/
-	public <T> void salvarOuAtualizar(final T o) {
+	public void salvarOuAtualizar(final T o) {
 		getSession().saveOrUpdate(o);
 	}
 
-	public <T> List<T> recuperarTodos(final Class<T> type) {
-		final Criteria crit = getSession().createCriteria(type);
+	public List<T> recuperarTodos(Class<T> classe) {
+		final Criteria crit = getSession().createCriteria(classe);
 		return crit.list();
 	}
 
-	public <T> List<T> executarQuery(Class<T> classe, String sql, Map<String, Object> parametros) {
+	public List<T> executarQuery(String sql, Map<String, Object> parametros) {
 
 		Query query = this.getEntityManager().createQuery(sql.toString());
 		if (parametros != null) {
@@ -60,6 +63,18 @@ public class DAOBase {
 			}
 		}
 		return query.getResultList();
+
+	}
+
+	public T executarQuerySingle(String sql, Map<String, Object> parametros) {
+
+		Query query = this.getEntityManager().createQuery(sql.toString());
+		if (parametros != null) {
+			for (String key : parametros.keySet()) {
+				query.setParameter(key, parametros.get(key));
+			}
+		}
+		return (T) query.getSingleResult();
 
 	}
 

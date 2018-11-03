@@ -11,7 +11,7 @@ public class Criptografia {
 	private static final String CHARSET_UTF_8 = "UTF-8";
 	private static final String HASH_ALGORITHM_SHA_256 = "SHA-256";
 
-	public String criptografar(String texto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public static String criptografar(String texto) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		MessageDigest algorithm = MessageDigest.getInstance(HASH_ALGORITHM_SHA_256);
 		byte messageDigest[] = algorithm.digest(texto.getBytes(CHARSET_UTF_8));
 

@@ -10,11 +10,45 @@
 <h:head>
 </h:head>
 <h:body>
-	<h1>Hello World PrimeFaces</h1>
 
-	<h:form>
-	   <p:editor value="#{editor.value}" />
-	</h:form>
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="content">
+			<div class="col-md-4 login-sec">
+				<h2 class="text-center">Acesso</h2>
+				<h:form styleClass="login-form">
+					<div class="form-group">
+						<label for="exampleInputEmail1" class="text-uppercase">Usuário</label>
+						<p:inputText styleClass="form-control" id="dsLogin"></p:inputText>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1" class="text-uppercase">Senha</label>
+						<p:password styleClass="form-control" id="dsSenha"></p:password>
+					</div>
 
+
+					<div class="form-check">
+						<p:button styleClass="btn btn-primary float-right" title="Enviar"
+							id="btLogar" value="Enviar" />
+					</div>
+					<div class="copy-text">
+						<h:outputLink value="criarUsuario.xhtml" id="linkCriarUsuario"
+							title="Não tenho acesso">Não tenho acesso </h:outputLink>
+					</div>
+
+
+				</h:form>
+			</div>
+			<div class="col-md-8 banner-sec">
+				<div class="carousel-inner" role="listbox">
+					<div>
+						<img class="d-block img-fluid" src="resources/img/logo.png"
+							alt="Slide 1" />
+					</div>
+				</div>
+
+			</div>
+
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>

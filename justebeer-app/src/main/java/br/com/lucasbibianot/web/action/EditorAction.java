@@ -1,8 +1,10 @@
 package br.com.lucasbibianot.web.action;
 
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
-@ManagedBean(name="editor")
+@Named("editor")
+@RequestScoped
 public class EditorAction {
 	private String value = "This editor is provided by PrimeFaces";
 

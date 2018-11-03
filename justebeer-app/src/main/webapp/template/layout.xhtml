@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link
+		href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet" id="bootstrap-css" />
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<h:outputStylesheet library="css" name="justbeer.css" />
+</h:head>
+<h:body>
+	<p:ajaxStatus onstart="PF('statusDialog').show()"
+		onsuccess="PF('statusDialog').hide()" />
+
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+		position="center center" onShow="PF('statusDialog').initPosition()"
+		closable="false" resizable="false" showHeader="false">
+		<p:graphicImage name="ajaxloadingbar.gif" library="img" />
+	</p:dialog>
+
+	<p:growl autoUpdate="true" id="messages" showDetail="true" ></p:growl>
+
+	<nav class="navbar navbar-light bg-light">
+	<div class="navbar-brand">
+		<div class="d-inline-block align-top">
+			<i class="fa fa-beer"></i> Just eBeer
+		</div>
+
+	</div>
+	</nav>
+	<section class="login-block">
+	<div class="container">
+		<div class="row">
+			<ui:insert name="content">
+			</ui:insert>
+		</div>
+	</div>
+	</section>
+
+</h:body>
+</html>

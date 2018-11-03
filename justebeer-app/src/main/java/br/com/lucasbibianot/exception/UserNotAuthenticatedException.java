@@ -11,4 +11,10 @@ public class UserNotAuthenticatedException extends Exception {
 	public UserNotAuthenticatedException(String msg, Throwable throwable) {
 		super(msg, throwable);
 	}
+	
+	public UserNotAuthenticatedException(String msg) {
+		super(msg);
+	}
+	
+	
 }

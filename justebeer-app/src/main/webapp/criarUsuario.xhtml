@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<ui:composition template="template/layout.xhtml">
+		<ui:define name="content">
+			<div class="col">
+				<h:form id="formCadastroUsuario">
+					<div class="row">
+						<h2 class="text-center largura100">Novo Usuário</h2>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group largura100">
+								<label for="nmUsuario" class="text-uppercase">Nome:</label>
+								<p:inputText styleClass="form-control" id="nmUsuario"
+									requiredMessage="O nome é obrigatório" required="true"
+									update="messages"
+									value="#{novoUsuarioAction.usuario.nomeUsuario}"></p:inputText>
+							</div>
+							<div class="form-group">
+								<label for="nmSenha" class="text-uppercase">Senha:</label>
+								<p:password styleClass="form-control" id="nmSenha"
+									required="true" requiredMessage="A senha é obrigatória"
+									update="messages" value="#{novoUsuarioAction.senha}"></p:password>
+							</div>
+							<div class="form-group">
+								<label for="nmConfirmacaoSenha" class="text-uppercase">Confirmação
+									da Senha:</label>
+								<p:password styleClass="form-control" id="nmConfirmacaoSenha"
+									required="true"
+									requiredMessage="A confirmação da senha é obrigatória"
+									update="messages" value="#{novoUsuarioAction.confirmacaoSenha}"></p:password>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1" class="text-uppercase">Email:</label>
+								<p:inputText styleClass="form-control" id="nmEmail"
+									required="true" requiredMessage="O email é obrigatório"
+									update="messages" value="#{novoUsuarioAction.usuario.mail}"></p:inputText>
+							</div>
+							<div class="form-check">
+								<p:commandButton styleClass="btn btn-primary float-right"
+									title="Salvar" icon="ui-icon-check" id="btSalvar"
+									value="Salvar" action="#{novoUsuarioAction.criarUsuario}"
+									update="messages, formCadastroUsuario" />
+								<p:commandButton action="#{novoUsuarioAction.cancelar}" immediate="true"
+									styleClass="btn btn-secondary float-right" title="Voltar"
+									value="Voltar" />
+							</div>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

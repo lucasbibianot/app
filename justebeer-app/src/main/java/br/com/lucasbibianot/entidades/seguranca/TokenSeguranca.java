@@ -20,8 +20,6 @@ public class TokenSeguranca extends EntidadeBase {
 	private String nomeToken;
 	@Column(name = "DS_SECRET_KEY")
 	private String secret;
-	@Column(name = "IN_ATIVO")
-	private String ativo;
 
 	public String getNomeToken() {
 		return nomeToken;
@@ -39,11 +37,4 @@ public class TokenSeguranca extends EntidadeBase {
 		this.secret = secret;
 	}
 
-	public String getAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(String ativo) {
-		this.ativo = ativo;
-	}
 }

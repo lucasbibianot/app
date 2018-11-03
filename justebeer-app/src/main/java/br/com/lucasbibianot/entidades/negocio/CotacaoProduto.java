@@ -2,6 +2,7 @@ package br.com.lucasbibianot.entidades.negocio;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class CotacaoProduto extends EntidadeBase {
 
 	@Column(name = "DT_COTACAO")
 	@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime dataCotacao;
+	private Calendar dataCotacao;
 	@ManyToOne
 	@JoinColumn(name = "ID_PRODUTO", referencedColumnName = "ID_PRODUTO")
 	private Produto produto;
@@ -37,15 +38,15 @@ public class CotacaoProduto extends EntidadeBase {
 	private BigDecimal valorProduto;
 	@Column(name = "DT_VALIDADE")
 	@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime dataValidade;
+	private Calendar dataValidade;
 	@Column(name = "DS_OBSERVAO")
 	private String observacao;
 
-	public LocalDateTime getDataCotacao() {
+	public Calendar getDataCotacao() {
 		return dataCotacao;
 	}
 
-	public void setDataCotacao(LocalDateTime dataCotacao) {
+	public void setDataCotacao(Calendar dataCotacao) {
 		this.dataCotacao = dataCotacao;
 	}
 
@@ -73,11 +74,11 @@ public class CotacaoProduto extends EntidadeBase {
 		this.valorProduto = valorProduto;
 	}
 
-	public LocalDateTime getDataValidade() {
+	public Calendar getDataValidade() {
 		return dataValidade;
 	}
 
-	public void setDataValidade(LocalDateTime dataValidade) {
+	public void setDataValidade(Calendar dataValidade) {
 		this.dataValidade = dataValidade;
 	}
 

@@ -14,5 +14,8 @@ insert into TB_RECIPIENTE(NM_RECIPIENTE, VAL_VOLUME, IN_ATIVO) values('Garrafa',
 insert into TB_RECIPIENTE(NM_RECIPIENTE, VAL_VOLUME, IN_ATIVO) values('Longneck', 0.355, 'S');
 insert into TB_RECIPIENTE(NM_RECIPIENTE, VAL_VOLUME, IN_ATIVO) values('Litro', 1.0, 'S');
 
+insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Administrador', 'S');
+insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
+
 
 
