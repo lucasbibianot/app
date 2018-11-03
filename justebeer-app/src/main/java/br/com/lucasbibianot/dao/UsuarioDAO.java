@@ -21,7 +21,7 @@ public class UsuarioDAO extends DAOBase<Usuario> {
 	 */
 	public Usuario recuperar(String email) throws MultiplusResultadosException {
 		String sql = "Select u from Usuario u where u.mail = :email";
-		Map<String, Object> parametros = new HashMap<>();
+		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("email", email);
 		try {
 			return this.executarQuerySingle(sql, parametros);

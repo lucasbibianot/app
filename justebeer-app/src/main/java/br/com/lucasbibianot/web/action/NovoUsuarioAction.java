@@ -38,7 +38,7 @@ public class NovoUsuarioAction extends BaseAction {
 			this.usuarioServico.salvarUsuario(usuario, senha, confirmacaoSenha);
 			this.addMensagemSucesso("Usuario cadastrado com sucesso");
 			this.usuario = new Usuario();
-		} catch (ErroOperacaoException | RegistroNaoEhUnicoException | ErroConfirmacaoSenhaException e) {
+		} catch (Exception e) {
 			this.addMensagemErro(e.getMessage());
 			e.printStackTrace();
 		}

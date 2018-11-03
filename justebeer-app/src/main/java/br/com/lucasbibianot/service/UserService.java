@@ -50,7 +50,9 @@ public class UserService {
 			} else {
 				throw new UserNotAuthenticatedException("Senha Inválida");
 			}
-		} catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
+		} catch (UnsupportedEncodingException e ) {
+			throw new UserNotAuthenticatedException("Erro na autenticacao", e);
+		} catch(NoSuchAlgorithmException e) {
 			throw new UserNotAuthenticatedException("Erro na autenticacao", e);
 		}
 	}
@@ -82,7 +84,9 @@ public class UserService {
 			usuario.setAtivo("S");
 
 			this.daoUsuario.salvarOuAtualizar(usuario);
-		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+		} catch (NoSuchAlgorithmException e) {
+			throw new ErroOperacaoException("Erro na Operação", e);
+		} catch (UnsupportedEncodingException e) {
 			throw new ErroOperacaoException("Erro na Operação", e);
 		}
 
@@ -93,7 +97,7 @@ public class UserService {
 	 * 
 	 * @param usuario
 	 */
-	private Usuario jaExisteUsuario(String email)  {
+	private Usuario jaExisteUsuario(String email) {
 		try {
 			return this.daoUsuario.recuperar(email);
 		} catch (MultiplusResultadosException e) {
