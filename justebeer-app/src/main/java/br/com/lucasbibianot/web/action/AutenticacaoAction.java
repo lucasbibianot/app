@@ -6,7 +6,7 @@ import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
 import br.com.lucasbibianot.exception.UserNotAuthenticatedException;
-import br.com.lucasbibianot.service.UserService;
+import br.com.lucasbibianot.service.UsuarioServico;
 
 @Named("autenticacaoAction")
 @SessionScoped
@@ -18,15 +18,15 @@ public class AutenticacaoAction extends BaseAction {
 	private static final long serialVersionUID = -2654500917198694311L;
 	private Usuario usuarioLogado;
 	@Inject
-	private UserService userService;
+	private UsuarioServico usuarioServico;
 
 	private String email;
 	private String senha;
 
 	public String logar() {
 		try {
-			if (this.userService.autenticar(email, senha)) {
-				this.usuarioLogado = this.userService.recuperar(email);
+			if (this.usuarioServico.autenticar(email, senha)) {
+				this.usuarioLogado = this.usuarioServico.recuperar(email);
 				if (usuarioLogado != null) {
 					return "principal";
 				}

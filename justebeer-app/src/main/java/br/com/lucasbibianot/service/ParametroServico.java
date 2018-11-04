@@ -13,7 +13,7 @@ import br.com.lucasbibianot.entidades.arquitetura.Parametro;
 import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
 @RequestScoped
-public class ParametroServico extends ServicoBase {
+public class ParametroServico extends BaseServico {
 
 	/**
 	 * 

@@ -14,18 +14,18 @@ import com.google.common.net.HttpHeaders;
 
 import br.com.lucasbibianot.security.SecurityJWT;
 import br.com.lucasbibianot.service.ParametroServico;
-import br.com.lucasbibianot.service.UserService;
+import br.com.lucasbibianot.service.UsuarioServico;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @RequestScoped
-public class UserEndPoint {
+public class UsuarioAPI {
 
 	@Inject
 	private SecurityJWT securityJWT;
 	@Inject
-	private UserService userService;
+	private UsuarioServico userService;
 	@Inject
 	private ParametroServico parametroServico;
 

@@ -2,7 +2,7 @@ package br.com.lucasbibianot.service;
 
 import java.io.Serializable;
 
-public class ServicoBase implements Serializable {
+public class BaseServico implements Serializable {
 
 	/**
 	 * 

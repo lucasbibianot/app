@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
-import br.com.lucasbibianot.service.UserService;
+import br.com.lucasbibianot.service.UsuarioServico;
 
 @Named("novoUsuarioAction")
 @RequestScoped
@@ -17,7 +17,7 @@ public class NovoUsuarioAction extends BaseAction {
 	private static final long serialVersionUID = 5655608263678526074L;
 
 	@Inject
-	private UserService usuarioServico;
+	private UsuarioServico usuarioServico;
 
 	private Usuario usuario = new Usuario();
 	private String senha = new String();

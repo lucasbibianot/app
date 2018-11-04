@@ -20,7 +20,7 @@ import br.com.lucasbibianot.exception.UserNotAuthenticatedException;
 import br.com.lucasbibianot.util.Criptografia;
 
 @RequestScoped
-public class UserService extends ServicoBase {
+public class UsuarioServico extends BaseServico {
 
 	/**
 	 * 
