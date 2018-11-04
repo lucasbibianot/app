@@ -1,17 +1,10 @@
 package br.com.lucasbibianot.web.action;
 
-import java.io.Serializable;
-
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
-import br.com.lucasbibianot.exception.ErroConfirmacaoSenhaException;
-import br.com.lucasbibianot.exception.ErroOperacaoException;
-import br.com.lucasbibianot.exception.RegistroNaoEhUnicoException;
 import br.com.lucasbibianot.service.UserService;
 
 @Named("novoUsuarioAction")
@@ -45,7 +38,7 @@ public class NovoUsuarioAction extends BaseAction {
 	}
 
 	public String cancelar() {
-		return "index.xhtml";
+		return "index";
 	}
 
 	public Usuario getUsuario() {

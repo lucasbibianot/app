@@ -14,7 +14,7 @@
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 		<param-value>client</param-value>
 	</context-param>
-	
+
 	<context-param>
 		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
 		<param-value>resources.application</param-value>
@@ -22,10 +22,20 @@
 	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
-	
+
+	<!-- login filter -->
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>br.com.lucasbibianot.security.filters.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/restrito/*</url-pattern>
+	</filter-mapping>
+
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>faces/index.xhtml</welcome-file>
+		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -37,19 +47,7 @@
 	<!-- Map these files with JSF -->
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>/faces/*</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.jsf</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.xhtml</url-pattern>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
 

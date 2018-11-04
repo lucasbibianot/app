@@ -18,17 +18,20 @@
 				<h:form styleClass="login-form">
 					<div class="form-group">
 						<label for="exampleInputEmail1" class="text-uppercase">Usuário</label>
-						<p:inputText styleClass="form-control" id="dsLogin"></p:inputText>
+						<p:inputText styleClass="form-control" id="dsLogin" required="true"
+							value="#{autenticacaoAction.email}"></p:inputText>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1" class="text-uppercase">Senha</label>
-						<p:password styleClass="form-control" id="dsSenha"></p:password>
+						<p:password styleClass="form-control" id="dsSenha" required="true"
+							value="#{autenticacaoAction.senha}"></p:password>
 					</div>
 
 
 					<div class="form-check">
-						<p:button styleClass="btn btn-primary float-right" title="Enviar"
-							id="btLogar" value="Enviar" />
+						<p:commandButton styleClass="btn btn-primary float-right"
+							title="Enviar" id="btLogar" value="Enviar"
+							action="#{autenticacaoAction.logar()}" />
 					</div>
 					<div class="copy-text">
 						<h:outputLink value="criarUsuario.xhtml" id="linkCriarUsuario"

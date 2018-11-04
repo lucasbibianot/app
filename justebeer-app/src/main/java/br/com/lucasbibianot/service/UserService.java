@@ -40,7 +40,7 @@ public class UserService {
 			throw new UserNotAuthenticatedException("O email e a senha são obrigatorios");
 		}
 		try {
-			Usuario usuario = this.jaExisteUsuario(email);
+			Usuario usuario = this.recuperar(email);
 			if (usuario == null) {
 				throw new UserNotAuthenticatedException("Usuário não encontrado");
 			}
@@ -67,7 +67,7 @@ public class UserService {
 			throws ErroConfirmacaoSenhaException, ErroOperacaoException, RegistroNaoEhUnicoException {
 		try {
 
-			if (this.jaExisteUsuario(usuario.getMail()) != null) {
+			if (this.recuperar(usuario.getMail()) != null) {
 				throw new RegistroNaoEhUnicoException("O email utilizado já existe.");
 			}
 
@@ -97,7 +97,7 @@ public class UserService {
 	 * 
 	 * @param usuario
 	 */
-	private Usuario jaExisteUsuario(String email) {
+	public Usuario recuperar(String email) {
 		try {
 			return this.daoUsuario.recuperar(email);
 		} catch (MultiplusResultadosException e) {
