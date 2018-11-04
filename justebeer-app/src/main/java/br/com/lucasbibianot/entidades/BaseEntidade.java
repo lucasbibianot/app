@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class EntidadeBase implements Serializable {
+public class BaseEntidade implements Serializable {
 
 	/**
 	 * 
@@ -55,7 +55,7 @@ public class EntidadeBase implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		EntidadeBase other = (EntidadeBase) obj;
+		BaseEntidade other = (BaseEntidade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -12,10 +12,10 @@ import javax.persistence.Query;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
-public class DAOBase<T extends EntidadeBase> {
+public class BaseDAO<T extends BaseEntidade> {
 
 	@Inject
 	private EntityManager entityManager;

@@ -9,7 +9,7 @@ import br.com.lucasbibianot.entidades.arquitetura.Parametro;
 import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
 @RequestScoped
-public class ParametroDAO extends DAOBase<Parametro> {
+public class ParametroDAO extends BaseDAO<Parametro> {
 
 	/**
 	 * Recupera o parâmetro dado o seu nome

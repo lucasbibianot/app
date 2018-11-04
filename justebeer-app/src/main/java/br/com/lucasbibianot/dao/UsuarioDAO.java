@@ -11,7 +11,7 @@ import br.com.lucasbibianot.entidades.arquitetura.Usuario;
 import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
 @RequestScoped
-public class UsuarioDAO extends DAOBase<Usuario> {
+public class UsuarioDAO extends BaseDAO<Usuario> {
 
 	/**
 	 * Retorna o usuário dado um email

@@ -13,12 +13,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 
 @Entity
 @Table(name = "TB_COTACAO_PRODUTO")
 @AttributeOverride(name = "id", column = @Column(name = "ID_COTACAO_PRODUTO"))
-public class CotacaoProduto extends EntidadeBase {
+public class CotacaoProduto extends BaseEntidade {
 
 	/**
 	 * 

@@ -11,7 +11,7 @@ import br.com.lucasbibianot.entidades.negocio.Fornecedor;
 import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
 @RequestScoped
-public class FornecedorDAO extends DAOBase<Fornecedor> {
+public class FornecedorDAO extends BaseDAO<Fornecedor> {
 
 	/**
 	 * Retorna todos os fornecedores, dado um latitude e longitude

@@ -7,12 +7,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 
 @Entity
 @Table(name = "TB_PRODUTO")
 @AttributeOverride(name = "id", column = @Column(name = "ID_PRODUTO"))
-public class Produto extends EntidadeBase {
+public class Produto extends BaseEntidade {
 
 	/**
 	 * 

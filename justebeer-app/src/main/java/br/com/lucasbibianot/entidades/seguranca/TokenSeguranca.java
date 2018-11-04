@@ -5,12 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 
 @Entity
 @Table(name = "TB_TOKEN_SEGURANCA")
 @AttributeOverride(name = "id", column = @Column(name = "ID_TOKEN_SEGURANCA"))
-public class TokenSeguranca extends EntidadeBase {
+public class TokenSeguranca extends BaseEntidade {
 
 	/**
 	 * 

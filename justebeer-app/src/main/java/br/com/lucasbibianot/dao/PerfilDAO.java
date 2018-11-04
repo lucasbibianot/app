@@ -5,6 +5,6 @@ import javax.enterprise.context.RequestScoped;
 import br.com.lucasbibianot.entidades.arquitetura.Perfil;
 
 @RequestScoped
-public class PerfilDAO extends DAOBase<Perfil>{
+public class PerfilDAO extends BaseDAO<Perfil>{
 
 }

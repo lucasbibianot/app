@@ -5,12 +5,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 
 @Entity
 @Table(name = "TB_PARAMETRO")
 @AttributeOverride(name = "id", column = @Column(name = "ID_PARAMETRO"))
-public class Parametro extends EntidadeBase {
+public class Parametro extends BaseEntidade {
 
 	/**
 	 * 

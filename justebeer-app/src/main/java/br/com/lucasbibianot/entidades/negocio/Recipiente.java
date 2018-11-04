@@ -7,12 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.entidades.BaseEntidade;
 
 @Entity
 @Table(name = "TB_RECIPIENTE")
 @AttributeOverride(name = "id", column = @Column(name = "ID_RECIPIENTE"))
-public class Recipiente extends EntidadeBase {
+public class Recipiente extends BaseEntidade {
 
 	/**
 	 * 
