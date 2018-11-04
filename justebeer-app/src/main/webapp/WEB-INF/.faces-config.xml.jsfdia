@@ -7,11 +7,18 @@
    <PROCESS-ITEM-OUTPUT ID="principal::#restrito#principal.xhtml"
     NAME="output" PATH="/restrito/principal.xhtml"
     TARGET="rules:#restrito#principal.xhtml" TITLE="principal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output1"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#restrito#principal.xhtml"
-  PATH="/restrito/principal.xhtml" SHAPE="304,72,50,25"
-  model-entity="JSFProcessGroup" persistent="true"/>
+  PATH="/restrito/principal.xhtml" SHAPE="360,72,50,25" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#restrito#principal.xhtml:0" NAME="item"
+   PATH="/restrito/principal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::#index.xhtml" NAME="output"
+    PATH="/index.xhtml" TARGET="rules:#index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#criarUsuario.xhtml"
   PATH="/criarUsuario.xhtml" SHAPE="120,232,50,25" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#criarUsuario.xhtml:0" NAME="item"

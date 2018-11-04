@@ -11,10 +11,64 @@
 </h:head>
 <h:body>
 
-	<ui:composition template="../template/layout.xhtml">
-		<ui:define name="content">
-			Bem Vindo #{autenticacaoAction.usuarioLogado.nomeUsuario}
-
+	<ui:composition template="template/layoutRestrito.xhtml">
+		<ui:define name="conteudoRestrito">
+			<div class="col">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card">
+							<span class="card-img-top" style="text-align: center"><i
+								class="fas fa-prescription-bottle-alt tamanho30"></i></span>
+							<div class="card-body">
+								<h5 class="card-title">Importar Produtos</h5>
+								<p class="card-text">Permite importar a planilha de produtos
+									existentes</p>
+								<h:form>
+									<p:commandButton styleClass="btn btn-primary" value="Importar"
+										id="btImportarProdutos"
+										action="#{importarProdutoAction.importar()}" />
+								</h:form>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card">
+							<span class="card-img-top" style="text-align: center"><i
+								class="far fa-building tamanho30"></i></span>
+							<div class="card-body">
+								<h5 class="card-title">Importar Fornecedores</h5>
+								<p class="card-text">Permite importar a planilha de
+									fornecedores existentes</p>
+								<a href="#" class="btn btn-primary">Importar</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card">
+							<span class="card-img-top" style="text-align: center"><i
+								class="far fa-file-excel tamanho30"></i></span>
+							<div class="card-body">
+								<h5 class="card-title">Exportar Cotaçoes</h5>
+								<p class="card-text">Permite exportar a planilha com as
+									cotações dos produtos</p>
+								<a href="#" class="btn btn-primary">Exportar</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="card">
+							<span class="card-img-top" style="text-align: center"><i
+								class="far fa-file-excel tamanho30"></i></span>
+							<div class="card-body">
+								<h5 class="card-title">Exportar Fornecedores</h5>
+								<p class="card-text">Permite exportar os fornecedores
+									cadastrados</p>
+								<a href="#" class="btn btn-primary">Exportar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

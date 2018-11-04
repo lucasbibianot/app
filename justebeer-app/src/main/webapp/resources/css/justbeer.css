@@ -1,14 +1,12 @@
 @charset "ISO-8859-1";
 
-@import
-	url("https://use.fontawesome.com/releases/v5.5.0/css/all.css")
-	;
+@import url("https://use.fontawesome.com/releases/v5.5.0/css/all.css");
 
 .login-block {
 	background: #c0c0c0; /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #f8f9fa, #c0c0c0);
 	/* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom,  #f8f9fa , #c0c0c0);
+	background: linear-gradient(to bottom, #f8f9fa, #c0c0c0);
 	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	float: left;
 	width: 100%;
@@ -118,4 +116,9 @@
 
 .largura100 {
 	width: 100%;
+}
+
+.tamanho30 {
+	font-size: 30px;
+	padding-top: 5%;
 }

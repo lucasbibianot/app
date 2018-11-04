@@ -9,10 +9,21 @@
 			<to-view-id>/restrito/principal.xhtml</to-view-id>
 			<redirect include-view-params="true" />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<from-view-id>/criarUsuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect include-view-params="true" />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/restrito/principal.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>index</from-outcome>
 			<to-view-id>/index.xhtml</to-view-id>

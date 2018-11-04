@@ -37,10 +37,15 @@ public class AutenticacaoAction extends BaseAction {
 			this.addMensagemErro(e.getMessage());
 			e.printStackTrace();
 		}
-		return "index.xhtml";
+		return "index";
 	}
-	
-	
+
+	public String sair() {
+		this.usuarioLogado = new Usuario();
+		this.invalidarSessao();
+		return "index";
+	}
+
 	public Boolean usuarioLogado() {
 		return this.usuarioLogado != null ? Boolean.TRUE : Boolean.FALSE;
 	}

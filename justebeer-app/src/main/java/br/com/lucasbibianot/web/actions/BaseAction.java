@@ -13,13 +13,15 @@ public class BaseAction implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public void addMensagemSucesso(String mensagem) {
-		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, mensagem, ""));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, mensagem, ""));
 	}
 
 	public void addMensagemErro(String mensagem) {
-		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_ERROR, mensagem, ""));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, mensagem, ""));
+	}
+
+	public void invalidarSessao() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
 
 }
