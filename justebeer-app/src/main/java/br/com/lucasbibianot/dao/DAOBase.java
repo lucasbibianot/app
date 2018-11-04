@@ -3,15 +3,17 @@ package br.com.lucasbibianot.dao;
 import java.util.List;
 import java.util.Map;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import br.com.lucasbibianot.entidades.EntidadeBase;
+import br.com.lucasbibianot.exception.MultiplusResultadosException;
 
 public class DAOBase<T extends EntidadeBase> {
 
@@ -66,7 +68,7 @@ public class DAOBase<T extends EntidadeBase> {
 
 	}
 
-	public T executarQuerySingle(String sql, Map<String, Object> parametros) {
+	public T executarQuerySingle(String sql, Map<String, Object> parametros) throws MultiplusResultadosException {
 
 		Query query = this.getEntityManager().createQuery(sql.toString());
 		if (parametros != null) {
@@ -74,7 +76,13 @@ public class DAOBase<T extends EntidadeBase> {
 				query.setParameter(key, parametros.get(key));
 			}
 		}
-		return (T) query.getSingleResult();
+		try {
+			return (T) query.getSingleResult();
+		} catch (NonUniqueResultException e) {
+			throw new MultiplusResultadosException("Registros duplicados", e);
+		} catch (NoResultException e) {
+			return null;
+		}
 
 	}
 

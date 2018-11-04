@@ -79,7 +79,7 @@ public class SecurityJWT {
 		jwt.parseJWT(token);
 	}
 
-	public String createJWT(String login, int ttl) {
+	public String createJWT(String login, Long ttl) {
 		return this.createJWT(login, "localHost", login, ttl);
 	}
 }

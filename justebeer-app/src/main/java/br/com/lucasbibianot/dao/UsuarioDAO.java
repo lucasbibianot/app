@@ -15,6 +15,7 @@ public class UsuarioDAO extends DAOBase<Usuario> {
 
 	/**
 	 * Retorna o usuário dado um email
+	 * 
 	 * @param email
 	 * @return
 	 * @throws MultiplusResultadosException
@@ -23,13 +24,7 @@ public class UsuarioDAO extends DAOBase<Usuario> {
 		String sql = "Select u from Usuario u where u.mail = :email";
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("email", email);
-		try {
-			return this.executarQuerySingle(sql, parametros);
-		} catch (NonUniqueResultException e) {
-			throw new MultiplusResultadosException("Existem usuário diferentes com o mesmo email", e);
-		} catch (NoResultException e) {
-			return null;
-		}
+		return this.executarQuerySingle(sql, parametros);
 
 	}
 

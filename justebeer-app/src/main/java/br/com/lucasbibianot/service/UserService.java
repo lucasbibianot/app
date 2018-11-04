@@ -20,12 +20,18 @@ import br.com.lucasbibianot.exception.UserNotAuthenticatedException;
 import br.com.lucasbibianot.util.Criptografia;
 
 @RequestScoped
-public class UserService {
+public class UserService extends ServicoBase {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6669466304645839271L;
 	@Inject
 	private UsuarioDAO daoUsuario;
 	@Inject
 	private PerfilDAO daoPerfil;
+	@Inject
+	private ParametroServico parametroServico;
 
 	/**
 	 * Serviço que realiza a autenticação do usuário
@@ -50,9 +56,9 @@ public class UserService {
 			} else {
 				throw new UserNotAuthenticatedException("Senha Inválida");
 			}
-		} catch (UnsupportedEncodingException e ) {
+		} catch (UnsupportedEncodingException e) {
 			throw new UserNotAuthenticatedException("Erro na autenticacao", e);
-		} catch(NoSuchAlgorithmException e) {
+		} catch (NoSuchAlgorithmException e) {
 			throw new UserNotAuthenticatedException("Erro na autenticacao", e);
 		}
 	}
@@ -77,7 +83,7 @@ public class UserService {
 				throw new ErroConfirmacaoSenhaException("Erro ao confirmar a senha");
 			}
 
-			Perfil perfilPadrao = this.daoPerfil.recuperarPorId(Perfil.class, 2L);
+			Perfil perfilPadrao = this.daoPerfil.recuperarPorId(Perfil.class, parametroServico.getParametroLong("idPerfilPadrao"));
 			usuario.setPerfil(perfilPadrao);
 			usuario.setSalt("");
 			usuario.setToken("");

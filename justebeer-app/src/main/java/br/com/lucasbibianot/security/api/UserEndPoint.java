@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import com.google.common.net.HttpHeaders;
 
 import br.com.lucasbibianot.security.SecurityJWT;
+import br.com.lucasbibianot.service.ParametroServico;
 import br.com.lucasbibianot.service.UserService;
 
 @Path("/users")
@@ -25,26 +26,27 @@ public class UserEndPoint {
 	private SecurityJWT securityJWT;
 	@Inject
 	private UserService userService;
-	
-    @POST
-    @Path("/login")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response authenticateUser(@FormParam("login") String login,
-                                     @FormParam("password") String password) {
-        try {
- 
-            // Authenticate the user using the credentials provided
-        	userService.autenticar(login, password);
- 
-            // Issue a token for the user
-            String token = this.securityJWT.createJWT(login, 600000000);
- 
-            // Return the token on the response
-            return Response.ok().header(HttpHeaders.AUTHORIZATION, "Bearer " + token).build();
- 
-        } catch (Exception e) {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
-        }
-    }
-	
+	@Inject
+	private ParametroServico parametroServico;
+
+	@POST
+	@Path("/login")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public Response authenticateUser(@FormParam("login") String login, @FormParam("password") String password) {
+		try {
+
+			// Authenticate the user using the credentials provided
+			userService.autenticar(login, password);
+
+			// Issue a token for the user
+			String token = this.securityJWT.createJWT(login, parametroServico.getParametroLong("timeoutToken"));
+
+			// Return the token on the response
+			return Response.ok().header(HttpHeaders.AUTHORIZATION, "Bearer " + token).build();
+
+		} catch (Exception e) {
+			return Response.status(Response.Status.UNAUTHORIZED).build();
+		}
+	}
+
 }

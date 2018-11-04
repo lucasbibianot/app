@@ -20,6 +20,8 @@ public class Parametro extends EntidadeBase {
 	private String nomeParametro;
 	@Column(name = "VAL_PARAMETRO")
 	private String valParametro;
+	@Column(name = "TP_PARAMETRO")
+	private String tipoParametro;
 
 	public String getNomeParametro() {
 		return nomeParametro;
@@ -37,4 +39,14 @@ public class Parametro extends EntidadeBase {
 		this.valParametro = valParametro;
 	}
 
+	public String getTipoParametro() {
+		return tipoParametro;
+	}
+
+	public void setTipoParametro(String tipoParametro) {
+		this.tipoParametro = tipoParametro;
+	}
+
+	
+	
 }
