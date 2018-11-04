@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.exception;
+package br.com.lucasbibianot.exceptions;
 
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerFactory;

@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.exception;
+package br.com.lucasbibianot.exceptions;
 
 /**
  * Exception, quando a senha e sua confirmação não corresponderem
@@ -6,6 +6,11 @@ package br.com.lucasbibianot.exception;
  *
  */
 public class ErroConfirmacaoSenhaException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2863122001883291021L;
 
 	public ErroConfirmacaoSenhaException(String msg) {
 		super(msg);

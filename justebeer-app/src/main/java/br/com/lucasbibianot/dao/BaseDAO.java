@@ -13,7 +13,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 import br.com.lucasbibianot.entidades.BaseEntidade;
-import br.com.lucasbibianot.exception.MultiplusResultadosException;
+import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
 
 public class BaseDAO<T extends BaseEntidade> {
 

@@ -5,25 +5,23 @@ import java.util.Map;
 
 import javax.enterprise.context.RequestScoped;
 
-import br.com.lucasbibianot.entidades.arquitetura.Usuario;
+import br.com.lucasbibianot.entidades.seguranca.TokenSeguranca;
 import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
 
 @RequestScoped
-public class UsuarioDAO extends BaseDAO<Usuario> {
+public class TokenSegurancaDAO extends BaseDAO<TokenSeguranca> {
 
 	/**
-	 * Retorna o usuário dado um email
+	 * Retorna o Token dado o seu nome
 	 * 
-	 * @param email
+	 * @param nome
 	 * @return
 	 * @throws MultiplusResultadosException
 	 */
-	public Usuario recuperar(String email) throws MultiplusResultadosException {
-		String sql = "Select u from Usuario u where u.mail = :email and u.ativo = 'S'";
+	public TokenSeguranca recuperar(String nome) throws MultiplusResultadosException {
+		String sql = "select t from TokenSeguranca t where t.nomeToken = :nomeToken and t.ativo = 'S'";
 		Map<String, Object> parametros = new HashMap<String, Object>();
-		parametros.put("email", email);
+		parametros.put("nomeToken", nome);
 		return this.executarQuerySingle(sql, parametros);
-
 	}
-
 }

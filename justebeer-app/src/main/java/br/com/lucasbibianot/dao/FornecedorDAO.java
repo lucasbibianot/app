@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.enterprise.context.RequestScoped;
 
 import br.com.lucasbibianot.entidades.negocio.Fornecedor;
-import br.com.lucasbibianot.exception.MultiplusResultadosException;
+import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
 
 @RequestScoped
 public class FornecedorDAO extends BaseDAO<Fornecedor> {
@@ -21,7 +21,7 @@ public class FornecedorDAO extends BaseDAO<Fornecedor> {
 	 * @return
 	 */
 	public List<Fornecedor> recuperar(BigDecimal latitude, BigDecimal longitude) {
-		String sql = "select f from Fornecedor f where f.latitude = :latitude and f.longitude = :longitude";
+		String sql = "select f from Fornecedor f where f.latitude = :latitude and f.longitude = :longitude and f.ativo = 'S'";
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("latitude", latitude);
 		parametros.put("longitude", longitude);
@@ -37,7 +37,7 @@ public class FornecedorDAO extends BaseDAO<Fornecedor> {
 	 * @throws MultiplusResultadosException
 	 */
 	public Fornecedor recuperar(String placeId) throws MultiplusResultadosException {
-		String sql = "select f from Fornecedor f where f.placeId = :placeId";
+		String sql = "select f from Fornecedor f where f.placeId = :placeId and f.ativo = 'S'";
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("placeId", placeId);
 		return this.executarQuerySingle(sql, parametros);

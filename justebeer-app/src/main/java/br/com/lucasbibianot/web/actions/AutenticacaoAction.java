@@ -1,12 +1,12 @@
-package br.com.lucasbibianot.web.action;
+package br.com.lucasbibianot.web.actions;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
-import br.com.lucasbibianot.exception.UserNotAuthenticatedException;
-import br.com.lucasbibianot.service.UsuarioServico;
+import br.com.lucasbibianot.exceptions.UserNotAuthenticatedException;
+import br.com.lucasbibianot.servicos.UsuarioServico;
 
 @Named("autenticacaoAction")
 @SessionScoped

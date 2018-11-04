@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.service;
+package br.com.lucasbibianot.servicos;
 
 import java.io.Serializable;
 

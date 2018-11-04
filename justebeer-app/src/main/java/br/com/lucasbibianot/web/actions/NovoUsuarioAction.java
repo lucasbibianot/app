@@ -1,11 +1,11 @@
-package br.com.lucasbibianot.web.action;
+package br.com.lucasbibianot.web.actions;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
-import br.com.lucasbibianot.service.UsuarioServico;
+import br.com.lucasbibianot.servicos.UsuarioServico;
 
 @Named("novoUsuarioAction")
 @RequestScoped

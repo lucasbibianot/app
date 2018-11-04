@@ -13,8 +13,9 @@ import javax.ws.rs.core.Response;
 import com.google.common.net.HttpHeaders;
 
 import br.com.lucasbibianot.security.SecurityJWT;
-import br.com.lucasbibianot.service.ParametroServico;
-import br.com.lucasbibianot.service.UsuarioServico;
+import br.com.lucasbibianot.servicos.ParametroServico;
+import br.com.lucasbibianot.servicos.UsuarioServico;
+import br.com.lucasbibianot.util.Constantes;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -22,6 +23,7 @@ import br.com.lucasbibianot.service.UsuarioServico;
 @RequestScoped
 public class UsuarioAPI {
 
+	
 	@Inject
 	private SecurityJWT securityJWT;
 	@Inject
@@ -39,7 +41,7 @@ public class UsuarioAPI {
 			userService.autenticar(login, password);
 
 			// Issue a token for the user
-			String token = this.securityJWT.createJWT(login, parametroServico.getParametroLong("timeoutToken"));
+			String token = this.securityJWT.createJWT(login, parametroServico.getParametroLong(Constantes.PARAM_TIMEOUT_TOKEN));
 
 			// Return the token on the response
 			return Response.ok().header(HttpHeaders.AUTHORIZATION, "Bearer " + token).build();

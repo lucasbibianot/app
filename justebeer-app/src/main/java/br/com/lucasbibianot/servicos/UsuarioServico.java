@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.service;
+package br.com.lucasbibianot.servicos;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -12,11 +12,12 @@ import br.com.lucasbibianot.dao.PerfilDAO;
 import br.com.lucasbibianot.dao.UsuarioDAO;
 import br.com.lucasbibianot.entidades.arquitetura.Perfil;
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
-import br.com.lucasbibianot.exception.ErroConfirmacaoSenhaException;
-import br.com.lucasbibianot.exception.ErroOperacaoException;
-import br.com.lucasbibianot.exception.MultiplusResultadosException;
-import br.com.lucasbibianot.exception.RegistroNaoEhUnicoException;
-import br.com.lucasbibianot.exception.UserNotAuthenticatedException;
+import br.com.lucasbibianot.exceptions.ErroConfirmacaoSenhaException;
+import br.com.lucasbibianot.exceptions.ErroOperacaoException;
+import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
+import br.com.lucasbibianot.exceptions.RegistroNaoEhUnicoException;
+import br.com.lucasbibianot.exceptions.UserNotAuthenticatedException;
+import br.com.lucasbibianot.util.Constantes;
 import br.com.lucasbibianot.util.Criptografia;
 
 @RequestScoped
@@ -83,7 +84,7 @@ public class UsuarioServico extends BaseServico {
 				throw new ErroConfirmacaoSenhaException("Erro ao confirmar a senha");
 			}
 
-			Perfil perfilPadrao = this.daoPerfil.recuperarPorId(Perfil.class, parametroServico.getParametroLong("idPerfilPadrao"));
+			Perfil perfilPadrao = this.daoPerfil.recuperarPorId(Perfil.class, parametroServico.getParametroLong(Constantes.PARAM_ID_PERFIL_PADRAO));
 			usuario.setPerfil(perfilPadrao);
 			usuario.setSalt("");
 			usuario.setToken("");

@@ -20,6 +20,6 @@
 		</navigation-case>
 	</navigation-rule>
 	<factory>
-		<exception-handler-factory>br.com.lucasbibianot.exception.CustomExceptionHandlerFactory</exception-handler-factory>
+		<exception-handler-factory>br.com.lucasbibianot.exceptions.CustomExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 </faces-config>

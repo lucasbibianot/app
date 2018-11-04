@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.exception;
+package br.com.lucasbibianot.exceptions;
 
 import java.util.Iterator;
 import java.util.Map;

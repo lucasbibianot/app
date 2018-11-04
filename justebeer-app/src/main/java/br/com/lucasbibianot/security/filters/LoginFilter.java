@@ -15,7 +15,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.lucasbibianot.web.action.AutenticacaoAction;
+import br.com.lucasbibianot.web.actions.AutenticacaoAction;
 
 @Named
 public class LoginFilter implements Filter {

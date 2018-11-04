@@ -8,19 +8,25 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.xml.bind.DatatypeConverter;
 
+import br.com.lucasbibianot.exceptions.ErroOperacaoException;
+import br.com.lucasbibianot.servicos.TokenSegurancaServico;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.SignatureException;
+import io.jsonwebtoken.UnsupportedJwtException;
 
 @RequestScoped
 public class SecurityJWT {
 
 	@Inject
-	private APIKey apiKey;
+	private TokenSegurancaServico tokenSeguranca;
 
 	// Sample method to construct a JWT
-	private String createJWT(String id, String issuer, String subject, long ttlMillis) {
+	private String createJWT(String id, String issuer, String subject, long ttlMillis) throws ErroOperacaoException {
 
 		// The JWT signature algorithm we will be using to sign the token
 		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -29,7 +35,7 @@ public class SecurityJWT {
 		Date now = new Date(nowMillis);
 
 		// We will sign our JWT with our ApiKey secret
-		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(apiKey.getSecretKey());
+		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(tokenSeguranca.getSecret());
 		Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
 		// Let's set the JWT Claims
@@ -51,7 +57,8 @@ public class SecurityJWT {
 		try {
 
 			// This line will throw an exception if it is not a signed JWS (as expected)
-			Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(apiKey.getSecretKey()))
+			Claims claims = Jwts.parser()
+					.setSigningKey(DatatypeConverter.parseBase64Binary(tokenSeguranca.getSecret()))
 					.parseClaimsJws(jwt).getBody();
 			return Boolean.TRUE;
 
@@ -60,10 +67,10 @@ public class SecurityJWT {
 		}
 	}
 
-	private void parseJWT(String jwt) {
+	private void parseJWT(String jwt) throws ExpiredJwtException, UnsupportedJwtException, MalformedJwtException, SignatureException, IllegalArgumentException, ErroOperacaoException {
 
 		// This line will throw an exception if it is not a signed JWS (as expected)
-		Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(apiKey.getSecretKey()))
+		Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(tokenSeguranca.getSecret()))
 				.parseClaimsJws(jwt).getBody();
 
 		System.out.println("ID: " + claims.getId());
@@ -72,14 +79,8 @@ public class SecurityJWT {
 		System.out.println("Expiration: " + claims.getExpiration());
 	}
 
-	public static void main(String[] args) {
-		SecurityJWT jwt = new SecurityJWT();
-		String token = jwt.createJWT("ID", "lucasvbt", "Tema", 60000000);
-		System.out.println(token);
-		jwt.parseJWT(token);
-	}
 
-	public String createJWT(String login, Long ttl) {
+	public String createJWT(String login, Long ttl) throws ErroOperacaoException {
 		return this.createJWT(login, "localHost", login, ttl);
 	}
 }

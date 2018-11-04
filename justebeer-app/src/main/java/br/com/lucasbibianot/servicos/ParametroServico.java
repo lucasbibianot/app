@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.service;
+package br.com.lucasbibianot.servicos;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import br.com.lucasbibianot.dao.ParametroDAO;
 import br.com.lucasbibianot.entidades.arquitetura.Parametro;
-import br.com.lucasbibianot.exception.MultiplusResultadosException;
+import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
 
 @RequestScoped
 public class ParametroServico extends BaseServico {

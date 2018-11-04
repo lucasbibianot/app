@@ -3,7 +3,10 @@ use root;
 /** cadatro de parâmetros da aplicação **/
 insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('timeoutToken','600000000', 'N');
 insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('idPerfilPadrao', '2', 'N');
-insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ();
+insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('token','mobile-token', 'S');
+
+/** cadastro do token de segurança **/
+insert into TB_TOKEN_SEGURANCA(NM_TOKEN, DS_SECRET_KEY, IN_ATIVO) values ('mobile-token', 'TGlsaWFueUZvdG9ncmFmaWE=', 'S');
 
 /** Cadastro de recipientes **/
 insert into TB_RECIPIENTE(NM_RECIPIENTE, VAL_VOLUME, IN_ATIVO) values('Latão', 0.473, 'S');
@@ -18,9 +21,9 @@ insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Administrador', 'S');
 insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
 
 
-select * from TB_PARAMETRO;
+select * from TB_TOKEN_SEGURANCA;
 
-truncate table TB_USUARIO;
+truncate table TB_TOKEN_SEGURANCA;
 
 
 

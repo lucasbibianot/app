@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.service;
+package br.com.lucasbibianot.servicos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.apache.deltaspike.core.util.StringUtils;
 import br.com.lucasbibianot.dao.FornecedorDAO;
 import br.com.lucasbibianot.dto.FornecedorParamDTO;
 import br.com.lucasbibianot.entidades.negocio.Fornecedor;
-import br.com.lucasbibianot.exception.MultiplusResultadosException;
+import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
 
 public class FornecedorServico extends BaseServico {
 

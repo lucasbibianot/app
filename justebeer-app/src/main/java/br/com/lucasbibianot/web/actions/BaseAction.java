@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.web.action;
+package br.com.lucasbibianot.web.actions;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package br.com.lucasbibianot.jpa.producer;
+package br.com.lucasbibianot.jpa.producers;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
