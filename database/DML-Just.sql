@@ -24,13 +24,16 @@ insert into TB_RECIPIENTE(NM_RECIPIENTE, VAL_VOLUME, IN_ATIVO) values('Litrão',
 insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Administrador', 'S');
 insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
 
-
+use root;
 select * from TB_PRODUTO;
+select * from TB_RECIPIENTE;
 
 truncate table TB_TOKEN_SEGURANCA;
 
 truncate table TB_PRODUTO;
 
+use root;
+delete from TB_RECIPIENTE where id_recipiente > 0;
 delete from TB_PRODUTO where id_produto > 0;
 
 
