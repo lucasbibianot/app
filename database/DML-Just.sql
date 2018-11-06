@@ -25,7 +25,7 @@ insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Administrador', 'S');
 insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
 
 use root;
-select * from TB_PRODUTO;
+select * from TB_PRODUTO where id_recipiente = 91;
 select * from TB_RECIPIENTE;
 
 truncate table TB_TOKEN_SEGURANCA;
