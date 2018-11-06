@@ -10,7 +10,6 @@
 <h:head>
 </h:head>
 <h:body>
-
 	<ui:composition template="template/layoutRestrito.xhtml">
 		<ui:define name="conteudoRestrito">
 			<div class="col">
@@ -23,11 +22,8 @@
 								<h5 class="card-title">Importar Produtos</h5>
 								<p class="card-text">Permite importar a planilha de produtos
 									existentes</p>
-								<h:form>
-									<p:commandButton styleClass="btn btn-primary" value="Importar"
-										id="btImportarProdutos"
-										action="#{importarProdutoAction.importar()}" />
-								</h:form>
+								<input class="btn btn-primary" value="Importar" type="button"
+									id="btImportarProdutos" onclick="PF('dlgProduto').show();" />
 							</div>
 						</div>
 					</div>
@@ -69,6 +65,32 @@
 					</div>
 				</div>
 			</div>
+			<h:form enctype="multipart/form-data">
+
+				<p:dialog header="Importar Produtos" widgetVar="dlgProduto"
+					modal="true" id="dlg2" height="200px" width="300px">
+					<div class="row">
+						<div class="col">
+							<h:outputText value="Selecione o arquivo" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:fileUpload value="#{importarProdutoAction.file}" mode="simple"
+								uploadLabel="Selecionar" allowTypes="xls|xlsx"
+								label="Selecionar" skinSimple="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:commandButton value="Enviar" ajax="false"
+								onclick="PF('statusDialog').show()"
+								actionListener="#{importarProdutoAction.upload}" />
+						</div>
+					</div>
+				</p:dialog>
+			</h:form>
+
 		</ui:define>
 	</ui:composition>
 </h:body>

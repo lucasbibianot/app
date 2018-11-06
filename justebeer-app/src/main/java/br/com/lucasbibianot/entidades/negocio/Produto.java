@@ -21,6 +21,8 @@ public class Produto extends BaseEntidade {
 
 	@Column(name = "NM_PRODUTO")
 	private String nomeProduto;
+	@Column(name = "URL_IMAGEM")
+	private String urlImagem;
 	@ManyToOne
 	@JoinColumn(name = "ID_FABRICANTE", referencedColumnName = "ID_FABRICANTE")
 	private Fabricante fabricante;
@@ -50,6 +52,14 @@ public class Produto extends BaseEntidade {
 
 	public void setRecipiente(Recipiente recipiente) {
 		this.recipiente = recipiente;
+	}
+
+	public String getUrlImagem() {
+		return urlImagem;
+	}
+
+	public void setUrlImagem(String urlImagem) {
+		this.urlImagem = urlImagem;
 	}
 
 }
