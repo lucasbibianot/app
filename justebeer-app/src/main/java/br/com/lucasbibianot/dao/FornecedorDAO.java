@@ -42,5 +42,19 @@ public class FornecedorDAO extends BaseDAO<Fornecedor> {
 		parametros.put("placeId", placeId);
 		return this.executarQuerySingle(sql, parametros);
 	}
+	
+	/**
+	 * Retorna o fornecedor pelo seu placeId
+	 * 
+	 * @param placeId
+	 * @return
+	 * @throws MultiplusResultadosException
+	 */
+	public Fornecedor recuperarPeloIdentificador(String identificador) throws MultiplusResultadosException {
+		String sql = "select f from Fornecedor f where f.identificador = :identificador and f.ativo = 'S'";
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("identificador", identificador);
+		return this.executarQuerySingle(sql, parametros);
+	}
 
 }

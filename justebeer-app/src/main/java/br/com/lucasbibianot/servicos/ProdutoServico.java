@@ -58,7 +58,7 @@ public class ProdutoServico extends BaseServico {
 	 * @throws IOException
 	 * @throws MultiplusResultadosException
 	 */
-	public void carregarPlanilha(InputStream file) throws IOException, MultiplusResultadosException {
+	public Integer carregarPlanilha(InputStream file) throws IOException, MultiplusResultadosException {
 		int startRow = 5;
 		int countRow = 1;
 		Iterator<Row> rowIterator = ExcelUtil.abrirPlanilha(file, 0).iterator();
@@ -69,6 +69,7 @@ public class ProdutoServico extends BaseServico {
 			}
 			countRow++;
 		}
+		return countRow;
 	}
 
 	/**

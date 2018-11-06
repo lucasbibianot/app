@@ -27,6 +27,7 @@ insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
 use root;
 select * from TB_PRODUTO where id_recipiente = 91;
 select * from TB_RECIPIENTE;
+select count(*) from TB_FORNECEDOR;
 
 truncate table TB_TOKEN_SEGURANCA;
 
@@ -35,6 +36,7 @@ truncate table TB_PRODUTO;
 use root;
 delete from TB_RECIPIENTE where id_recipiente > 0;
 delete from TB_PRODUTO where id_produto > 0;
+delete from TB_FORNECEDOR where id_fornecedor > 0;
 
 
 

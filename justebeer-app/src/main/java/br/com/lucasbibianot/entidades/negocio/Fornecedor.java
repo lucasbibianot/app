@@ -39,6 +39,24 @@ public class Fornecedor extends BaseEntidade {
 	private String webSite;
 	@Column(name = "NUM_CEP")
 	private Integer cep;
+	@Column(name = "NUM_LOGRADOURO")
+	private Integer numero;
+	@Column(name = "NM_RUA")
+	private String rua;
+	@Column(name = "DS_COMPLEMENTO")
+	private String complemento;
+	@Column(name = "NM_BAIRRO")
+	private String bairro;
+	@Column(name = "NM_CIDADE")
+	private String cidade;
+	@Column(name = "DS_UF")
+	private String uf;
+	@Column(name = "NM_CONTATO_TEL")
+	private String contatoTel;
+	@Column(name = "NM_CONTATO_MAIL")
+	private String contatoEMail;
+	@Column(name = "DS_MAIL")
+	private String email;
 
 	public String getNomeFornecedor() {
 		return nomeFornecedor;
@@ -118,6 +136,78 @@ public class Fornecedor extends BaseEntidade {
 
 	public void setCep(Integer cep) {
 		this.cep = cep;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getRua() {
+		return rua;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getContatoTel() {
+		return contatoTel;
+	}
+
+	public void setContatoTel(String contatoTel) {
+		this.contatoTel = contatoTel;
+	}
+
+	public String getContatoEMail() {
+		return contatoEMail;
+	}
+
+	public void setContatoEMail(String contatoEMail) {
+		this.contatoEMail = contatoEMail;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

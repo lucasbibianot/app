@@ -35,7 +35,8 @@
 								<h5 class="card-title">Importar Fornecedores</h5>
 								<p class="card-text">Permite importar a planilha de
 									fornecedores existentes</p>
-								<a href="#" class="btn btn-primary">Importar</a>
+								<input class="btn btn-primary" value="Importar" type="button"
+									id="btImportarProdutos" onclick="PF('dlgFornecedor').show();" />
 							</div>
 						</div>
 					</div>
@@ -65,7 +66,7 @@
 					</div>
 				</div>
 			</div>
-			<h:form enctype="multipart/form-data">
+			<h:form enctype="multipart/form-data" id="formProduto">
 
 				<p:dialog header="Importar Produtos" widgetVar="dlgProduto"
 					modal="true" id="dlg2" height="200px" width="300px">
@@ -77,7 +78,7 @@
 					<div class="row">
 						<div class="col-md-5">
 							<p:fileUpload value="#{importarProdutoAction.file}" mode="simple"
-								uploadLabel="Selecionar" allowTypes="xls|xlsx"
+								uploadLabel="Selecionar" allowTypes="(xls|xlsx)"
 								label="Selecionar" skinSimple="true" />
 						</div>
 					</div>
@@ -90,7 +91,31 @@
 					</div>
 				</p:dialog>
 			</h:form>
+			<h:form enctype="multipart/form-data" id="formFornecedor">
 
+				<p:dialog header="Importar Fornecedores" widgetVar="dlgFornecedor"
+					modal="true" id="dlg2" height="200px" width="300px">
+					<div class="row">
+						<div class="col">
+							<h:outputText value="Selecione o arquivo" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:fileUpload value="#{importarFornecedorAction.file}"
+								mode="simple" uploadLabel="Selecionar" allowTypes="(xls|xlsx)"
+								label="Selecionar" skinSimple="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:commandButton value="Enviar" ajax="false"
+								onclick="PF('statusDialog').show()"
+								actionListener="#{importarFornecedorAction.upload()}" />
+						</div>
+					</div>
+				</p:dialog>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

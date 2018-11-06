@@ -9,22 +9,21 @@ import javax.inject.Named;
 import org.primefaces.model.UploadedFile;
 
 import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
-import br.com.lucasbibianot.servicos.ProdutoServico;
+import br.com.lucasbibianot.servicos.FornecedorServico;
 
-@Named("importarProdutoAction")
+@Named("importarFornecedorAction")
 @RequestScoped
-public class ImportarProdutoAction extends BaseAction {
+public class ImportarFornecedorAction extends BaseAction {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 948844589897388295L;
+	private static final long serialVersionUID = 3214413375802398650L;
 
 	@Inject
-	private ProdutoServico produtoServico;
+	private FornecedorServico fornecedorServico;
 
 	private UploadedFile file;
-	
 	private Integer qtdeRegistros;
 
 	public UploadedFile getFile() {
@@ -43,9 +42,9 @@ public class ImportarProdutoAction extends BaseAction {
 		}
 	}
 
-	public void importar() {
+	private void importar() {
 		try {
-			this.qtdeRegistros = this.produtoServico.carregarPlanilha(this.file.getInputstream());
+			this.qtdeRegistros = this.fornecedorServico.carregarPlanilha(this.file.getInputstream());
 		} catch (IOException e) {
 			this.addMensagemErro(e.getMessage());
 			e.printStackTrace();
