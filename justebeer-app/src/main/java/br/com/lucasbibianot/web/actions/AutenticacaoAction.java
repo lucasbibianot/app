@@ -6,7 +6,9 @@ import javax.inject.Named;
 
 import br.com.lucasbibianot.entidades.arquitetura.Usuario;
 import br.com.lucasbibianot.exceptions.UserNotAuthenticatedException;
+import br.com.lucasbibianot.servicos.ParametroServico;
 import br.com.lucasbibianot.servicos.UsuarioServico;
+import br.com.lucasbibianot.util.Constantes;
 
 @Named("autenticacaoAction")
 @SessionScoped
@@ -20,14 +22,21 @@ public class AutenticacaoAction extends BaseAction {
 	@Inject
 	private UsuarioServico usuarioServico;
 
+	@Inject
+	private ParametroServico parametroServico;
+
 	private String email;
 	private String senha;
 
 	public String logar() {
 		try {
 			if (this.usuarioServico.autenticar(email, senha)) {
+				Long idPerfilADM = this.parametroServico.getParametroLong(Constantes.PARAM_ID_PERFIL_ADM);
 				this.usuarioLogado = this.usuarioServico.recuperar(email);
-				if (usuarioLogado != null) {
+				if (usuarioLogado != null && !idPerfilADM.equals(usuarioLogado.getPerfil().getId())) {
+					this.addMensagemErro("Acesso permitido somente a administradores");
+					return "index";
+				} else if (usuarioLogado != null) {
 					return "principal";
 				}
 			}

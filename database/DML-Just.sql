@@ -4,6 +4,7 @@ use root;
 insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('timeoutToken','600000000', 'N');
 insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('idPerfilPadrao', '2', 'N');
 insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('token','mobile-token', 'S');
+insert into TB_PARAMETRO(NM_PARAMETRO, VAL_PARAMETRO, TP_PARAMETRO) values ('idPerfilAdministrador', '1', 'N');
 
 /** cadastro do token de segurança **/
 insert into TB_TOKEN_SEGURANCA(NM_TOKEN, DS_SECRET_KEY, IN_ATIVO) values ('mobile-token', 'TGlsaWFueUZvdG9ncmFmaWE=', 'S');
@@ -27,11 +28,16 @@ insert into TB_PERFIL(NM_PERFIL, IN_ATIVO) values ('Usuario', 'S');
 use root;
 select * from TB_PRODUTO where id_recipiente = 91;
 select * from TB_RECIPIENTE;
+select * from TB_ARAP;
 select count(*) from TB_FORNECEDOR;
+
+truncate table TB_PARAMETRO;
 
 truncate table TB_TOKEN_SEGURANCA;
 
-truncate table TB_PRODUTO;
+delete from tb_perfil where id_perfil > 2;
+
+select * from tb_usuario;
 
 use root;
 delete from TB_RECIPIENTE where id_recipiente > 0;
@@ -39,7 +45,9 @@ delete from TB_PRODUTO where id_produto > 0;
 delete from TB_FORNECEDOR where id_fornecedor > 0;
 
 
+update tb_usuario set id_perfil = 1 where id_usuario in (1,2);
 
+select * from tb_usuario;
 
 
 

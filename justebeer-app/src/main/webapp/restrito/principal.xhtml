@@ -43,12 +43,14 @@
 					<div class="col-md-3">
 						<div class="card">
 							<span class="card-img-top" style="text-align: center"><i
-								class="far fa-file-excel tamanho30"></i></span>
+								class="fas fa-hand-holding-usd tamanho30"></i></span>
 							<div class="card-body">
-								<h5 class="card-title">Exportar Cotaçoes</h5>
-								<p class="card-text">Permite exportar a planilha com as
-									cotações dos produtos</p>
-								<a href="#" class="btn btn-primary">Exportar</a>
+								<h5 class="card-title">Importar Cotações</h5>
+								<p class="card-text">Permite importar cotações a partir de
+									uma planilha Excel</p>
+								<input class="btn btn-primary" value="Importar" type="button"
+									id="btImportarCotacoes"
+									onclick="PF('dlgCotacoesImportar').show();" />
 							</div>
 						</div>
 					</div>
@@ -57,9 +59,9 @@
 							<span class="card-img-top" style="text-align: center"><i
 								class="far fa-file-excel tamanho30"></i></span>
 							<div class="card-body">
-								<h5 class="card-title">Exportar Fornecedores</h5>
-								<p class="card-text">Permite exportar os fornecedores
-									cadastrados</p>
+								<h5 class="card-title">Exportar Cotaçoes</h5>
+								<p class="card-text">Permite exportar a planilha com as
+									cotações dos produtos</p>
 								<a href="#" class="btn btn-primary">Exportar</a>
 							</div>
 						</div>
@@ -94,6 +96,32 @@
 			<h:form enctype="multipart/form-data" id="formFornecedor">
 
 				<p:dialog header="Importar Fornecedores" widgetVar="dlgFornecedor"
+					modal="true" id="dlg2" height="200px" width="300px">
+					<div class="row">
+						<div class="col">
+							<h:outputText value="Selecione o arquivo" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:fileUpload value="#{importarFornecedorAction.file}"
+								mode="simple" uploadLabel="Selecionar" allowTypes="(xls|xlsx)"
+								label="Selecionar" skinSimple="true" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<p:commandButton value="Enviar" ajax="false"
+								onclick="PF('statusDialog').show()"
+								actionListener="#{importarFornecedorAction.upload()}" />
+						</div>
+					</div>
+				</p:dialog>
+			</h:form>
+
+			<h:form enctype="multipart/form-data" id="formCotacoes">
+
+				<p:dialog header="Importar Cotações" widgetVar="dlgCotacoesImportar"
 					modal="true" id="dlg2" height="200px" width="300px">
 					<div class="row">
 						<div class="col">

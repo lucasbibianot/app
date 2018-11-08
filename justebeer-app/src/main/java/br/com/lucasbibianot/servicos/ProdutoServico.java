@@ -103,8 +103,11 @@ public class ProdutoServico extends BaseServico {
 			}
 			countCol++;
 		}
-		produto.setRecipiente(this.recipienteServico.recuperar(recipiente));
-		return produto;
+		if (!org.apache.deltaspike.core.util.StringUtils.isEmpty(produto.getNomeProduto())) {
+			produto.setRecipiente(this.recipienteServico.recuperar(recipiente));
+			return produto;
+		} 
+		return null;
 	}
 
 	private void preencherProduto(Produto produto, Cell cell, int countCol, Recipiente recipiente)
@@ -113,13 +116,16 @@ public class ProdutoServico extends BaseServico {
 		if (valor != null) {
 			switch (countCol) {
 			case 2:
-				produto.setNomeProduto((String) valor);
-				break;
-			case 6:
 				recipiente.setNome((String) valor);
 				break;
-			case 7:
+			case 3:
 				recipiente.setVolume(BigDecimal.valueOf((Double) valor));
+				break;
+			case 4:
+				produto.setNomeProduto((String) valor);
+				break;
+			case 5:
+				produto.setUrlImagem(valor instanceof String ? (String) valor : null);
 			}
 		}
 	}
