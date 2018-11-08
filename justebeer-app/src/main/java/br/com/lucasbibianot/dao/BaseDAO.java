@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.lucasbibianot.entidades.BaseEntidade;
 import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
@@ -53,6 +54,7 @@ public class BaseDAO<T extends BaseEntidade> {
 
 	public List<T> recuperarTodos(Class<T> classe) {
 		final Criteria crit = getSession().createCriteria(classe);
+		crit.add(Restrictions.eq("ativo", "S"));
 		return crit.list();
 	}
 

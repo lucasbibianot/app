@@ -45,6 +45,7 @@ public class ImportarFornecedorAction extends BaseAction {
 	private void importar() {
 		try {
 			this.qtdeRegistros = this.fornecedorServico.carregarPlanilha(this.file.getInputstream());
+			this.file.getInputstream().close();
 		} catch (IOException e) {
 			this.addMensagemErro(e.getMessage());
 			e.printStackTrace();

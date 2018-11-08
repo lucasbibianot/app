@@ -14,6 +14,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
 import br.com.lucasbibianot.dao.FornecedorDAO;
+import br.com.lucasbibianot.dto.FornecedorDTO;
+import br.com.lucasbibianot.dto.FornecedorEnvelopeDTO;
 import br.com.lucasbibianot.dto.FornecedorParamDTO;
 import br.com.lucasbibianot.entidades.negocio.Fornecedor;
 import br.com.lucasbibianot.exceptions.MultiplusResultadosException;
@@ -55,6 +57,22 @@ public class FornecedorServico extends BaseServico {
 		return fornecedores;
 
 	}
+	
+	/**
+	 * Retorna a lista de fornecedores 
+	 * @return
+	 */
+	public FornecedorEnvelopeDTO recuperarTodos() {
+		FornecedorEnvelopeDTO envelopeDTO = new FornecedorEnvelopeDTO();
+		List<FornecedorDTO> lista = new ArrayList<FornecedorDTO>();
+		for(Fornecedor fornecedor : this.fornecedorDAO.recuperarTodos(Fornecedor.class)) {
+			FornecedorDTO dto = new FornecedorDTO(fornecedor);
+			lista.add(dto);
+		}
+		envelopeDTO.setFornecedores(lista);
+		return envelopeDTO;
+	}
+	
 
 	/**
 	 * Carrega a planilha com os fornecedores existentes

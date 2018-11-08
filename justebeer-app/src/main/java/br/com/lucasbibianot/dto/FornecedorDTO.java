@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.lucasbibianot.entidades.negocio.Fornecedor;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FornecedorDTO implements Serializable {
@@ -25,6 +27,16 @@ public class FornecedorDTO implements Serializable {
 	private String telefone;
 	private String webSite;
 	private Integer cep;
+	private Integer numero;
+	private String rua;
+	private String complemento;
+	private String bairro;
+	private String cidade;
+	private String uf;
+	private String contatoTel;
+	private String contatoEMail;
+	private String email;
+	private String nomeExibicao;
 
 	public String getNomeFornecedor() {
 		return nomeFornecedor;
@@ -104,6 +116,115 @@ public class FornecedorDTO implements Serializable {
 
 	public void setCep(Integer cep) {
 		this.cep = cep;
+	}
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numero = numero;
+	}
+
+	public String getRua() {
+		return rua;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getContatoTel() {
+		return contatoTel;
+	}
+
+	public void setContatoTel(String contatoTel) {
+		this.contatoTel = contatoTel;
+	}
+
+	public String getContatoEMail() {
+		return contatoEMail;
+	}
+
+	public void setContatoEMail(String contatoEMail) {
+		this.contatoEMail = contatoEMail;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNomeExibicao() {
+		return this.nomeExibicao;
+	}
+
+	/**
+	 * Instancia o DTO a partir da entidade Fornecedor
+	 * 
+	 * @param fornecedor
+	 */
+	public FornecedorDTO(Fornecedor fornecedor) {
+		this.bairro = fornecedor.getBairro();
+		this.cep = fornecedor.getCep();
+		this.cidade = fornecedor.getCidade();
+		this.complemento = fornecedor.getComplemento();
+		this.contatoEMail = fornecedor.getContatoEMail();
+		this.contatoTel = fornecedor.getContatoTel();
+		this.email = fornecedor.getEmail();
+		this.endereco = fornecedor.getEndereco();
+		this.identificador = fornecedor.getIdentificador();
+		this.latitude = fornecedor.getLatitude();
+		this.longitude = fornecedor.getLongitude();
+		this.nomeFornecedor = fornecedor.getNomeFornecedor();
+		this.numero = fornecedor.getNumero();
+		this.placeId = fornecedor.getPlaceId();
+		this.referencia = fornecedor.getReferencia();
+		this.rua = fornecedor.getRua();
+		this.telefone = fornecedor.getTelefone();
+		this.uf = fornecedor.getUf();
+		this.webSite = fornecedor.getWebSite();
+		this.nomeExibicao = this.nomeFornecedor + " - " + this.referencia;
+
+	}
+
+	public FornecedorDTO() {
+		super();
 	}
 
 }
