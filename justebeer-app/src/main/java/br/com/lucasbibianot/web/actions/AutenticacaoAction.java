@@ -30,9 +30,9 @@ public class AutenticacaoAction extends BaseAction {
 
 	public String logar() {
 		try {
-			if (this.usuarioServico.autenticar(email, senha)) {
+			this.usuarioLogado = this.usuarioServico.autenticar(email, senha);
+			if (this.usuarioLogado != null) {
 				Long idPerfilADM = this.parametroServico.getParametroLong(Constantes.PARAM_ID_PERFIL_ADM);
-				this.usuarioLogado = this.usuarioServico.recuperar(email);
 				if (usuarioLogado != null && !idPerfilADM.equals(usuarioLogado.getPerfil().getId())) {
 					this.addMensagemErro("Acesso permitido somente a administradores");
 					return "index";
